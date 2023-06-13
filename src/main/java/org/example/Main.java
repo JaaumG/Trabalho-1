@@ -11,25 +11,23 @@ public class Main {
         System.out.println("Digite quantos alunos terão suas médias calculadas:");
         int quantidadeAlunos = sc.nextInt();
         sc.nextLine();
-        String[] nomes = new String[quantidadeAlunos];
-        Double[] notasPrimeiroBim = new Double[quantidadeAlunos];
-        Double[] notasSegundoBim = new Double[quantidadeAlunos];
+        Aluno[] alunos = new Aluno[quantidadeAlunos];
         for (int i = 0; i < quantidadeAlunos; i++) {
-            System.out.println("Digite o nome do aluno 1:");
-            nomes[i] = sc.nextLine();
+            System.out.println("Digite o nome do aluno "+i+":");
+            String nome = sc.nextLine();
             System.out.println("Digite a nota do primeiro Bimestre");
-            notasPrimeiroBim[i] = sc.nextDouble();
+            double notasPrimeiroBim = sc.nextDouble();
             System.out.println("Digite a nota do segundo Bimestre");
-            notasSegundoBim[i] = sc.nextDouble();
+            double notasSegundoBim = sc.nextDouble();
             sc.nextLine();
+            alunos[i] = new Aluno(nome, notasPrimeiroBim, notasSegundoBim);
         }
         sc.close();
         for (int i = 0; i < quantidadeAlunos; i++) {
-            double media = (notasPrimeiroBim[i] + notasSegundoBim[i])/2;
-            if(media> 6){
-                System.out.println("Aluno: " + nomes[i] + " APROVADO, média: " + media);
+            if(alunos[i].media()> 6){
+                System.out.println("Aluno: " + alunos[i].getNome() + " APROVADO, média: " + alunos[i].media());
             }else{
-                System.out.println("Aluno: " + nomes[i] + " REPROVADO, média: " + media);
+                System.out.println("Aluno: " + alunos[i].getNome() + " REPROVADO, média: " + alunos[i].media());
             }
         }
     }
