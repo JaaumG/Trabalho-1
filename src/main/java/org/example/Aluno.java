@@ -2,16 +2,20 @@ package org.example;
 
 public class Aluno {
 
-    String nome;
-    double notaPrimeiroBim;
-    double notaSegundoBim;
+    //Atributos do aluno
 
+    private String nome;
+    private double notaPrimeiroBim;
+    private double notaSegundoBim;
+
+    //Construtor da classe aluno
     public Aluno(String nome, double notaPrimeiroBim, double notaSegundoBim) {
         this.nome = nome;
         this.notaPrimeiroBim = notaPrimeiroBim;
         this.notaSegundoBim = notaSegundoBim;
     }
 
+    //Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -37,6 +41,7 @@ public class Aluno {
     }
 
     public double media(){
+        //Metodo publico de aluno no qual retorna a sua media
         return (notaPrimeiroBim + notaSegundoBim)/2;
     }
 }
